@@ -1,17 +1,13 @@
-const socket = new WebSocket('ws://localhost:3000/api');
-let initialState = {}
-socket.onopen = () => {
-  socket.send('UPDATE');
-}
-socket.onmessage = (event) => {
-  initialState = JSON.parse(event.data);
+let initialState = {
+  base: 0,
+  exchangeRates: {},
 }
 
-export function getCurrencys() {
+export function getCurrencys(value) {
   return {
     type: 'GET_CURRENCY',
     payload: {
-      ...initialState
+      ...value.exchangeRates
     },
   }
 }
@@ -36,7 +32,8 @@ export function currency(state = initialState, action) {
       
     case 'GET_CURRENCY':
       return {
-        ...action.payload,
+        ...state,
+        exchangeRates: action.payload,
       }
     default:
       return state;

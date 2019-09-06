@@ -2,8 +2,10 @@ import React from 'react';
 import './App.css';
 
 const CurrenceField = (props) => {
-  console.log(typeof props.dataValue);
-  return <input type="number" data-type={props.dataType} value={props.dataValue}/>
+  return <div>
+    <label>{props.label}: </label>
+    <input min="0" type='number' value={props.value} onChange={props.change}/>
+</div>
 }
 
 export default CurrenceField;

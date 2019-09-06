@@ -23,6 +23,21 @@
   color: #61dafb;
 }
 
+.preloader {
+  align-items: center;
+  animation: App-logo-spin infinite 20s linear;
+  background-color: #282c34;
+  display: flex;
+  justify-content: center;
+  height: 40px;
+  left: 50%;
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, 50%);
+  width: 40px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
