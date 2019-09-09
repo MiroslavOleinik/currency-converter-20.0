@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import { currency } from './currency'
+import { currency } from './Currency'
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
