@@ -1,7 +1,8 @@
-let initialState = {
+/* eslint-disable no-case-declarations */
+const initialState = {
   base: 0,
   exchangeRates: {},
-}
+};
 
 export function getCurrencys(value) {
   switch (value.type) {
@@ -11,38 +12,38 @@ export function getCurrencys(value) {
         payload: {
           dollarCourse: value[value.type],
         },
-      }
+      };
     case 'euroCourse':
       return {
         type: 'GET_CURRENCY',
         payload: {
           euroCourse: value[value.type],
         },
-      }
+      };
     case 'poundeCourse':
       return {
         type: 'GET_CURRENCY',
         payload: {
           poundeCourse: value[value.type],
         },
-      }
-    default: 
+      };
+    default:
       return {
         type: 'GET_CURRENCY',
         payload: {
-          ...value.exchangeRates
+          ...value.exchangeRates,
         },
-      }
-  };
+      };
+  }
 }
 
 export function updateValue(value) {
   return {
     type: 'UPDATE_CURRENCY',
     payload: {
-      value
+      value,
     },
-  }
+  };
 }
 
 export function currency(state = initialState, action) {
@@ -52,15 +53,15 @@ export function currency(state = initialState, action) {
       return {
         ...state,
         base: value,
-      }
+      };
     case 'GET_CURRENCY':
       return {
         ...state,
         exchangeRates: {
           ...state.exchangeRates,
           ...action.payload,
-        }
-      }
+        },
+      };
     default:
       return state;
   }
